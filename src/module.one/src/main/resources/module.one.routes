@@ -1,0 +1,1 @@
+GET     /status        module.one.controllers.StatusController.status()
