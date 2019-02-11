@@ -116,6 +116,22 @@
             </configuration>
         </plugin>
         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>3.0.0</version>
+            <executions>
+                <execution>
+                    <phase>process-sources</phase>
+                    <goals><goal>add-source</goal></goals>
+                    <configuration>
+                        <sources>
+                            <source>./target/routes/main</source>
+                        </sources>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        <plugin>
             <groupId>com.google.code.sbt-compiler-maven-plugin</groupId>
             <artifactId>sbt-compiler-maven-plugin</artifactId>
             <version>${sbt-compiler.plugin.version}</version>
