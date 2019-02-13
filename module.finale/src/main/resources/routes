@@ -1,3 +1,0 @@
-->       /1         module.one.Routes
-->       /2         module.two.Routes
-GET       /assets/*file   controllers.Assets.at(path = "/public/", file)

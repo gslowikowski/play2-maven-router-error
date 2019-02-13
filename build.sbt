@@ -34,7 +34,3 @@ lazy val finale = (project in file("./module.finale"))
     name := "module.finale",
     routesImport := Seq.empty //Remove the default imports in the generated route file to avoid warnings
   )
-  .dependsOn(
-    one,
-    two
-  )

@@ -1,26 +1,26 @@
 package test
 
-import _root_.controllers.AssetsComponents
-import module.one.OneComponents
-import module.two.TwoComponents
 import play.api.ApplicationLoader.Context
 import play.api.{BuiltInComponentsFromContext, NoHttpFiltersComponents}
-import router.Routes
+import test.intern.{Routes => InternRoutes}
+import test.controllers.StatusController
 
 class ApplicationComponents(
   context: Context
 ) extends BuiltInComponentsFromContext(
   context
-) with NoHttpFiltersComponents
-  with AssetsComponents {
+) with NoHttpFiltersComponents {
 
-  lazy val oneComponents = new OneComponents(httpErrorHandler, controllerComponents)
-  lazy val twoComponents = new TwoComponents(httpErrorHandler, controllerComponents)
+  val statusController: StatusController = new StatusController(controllerComponents)
+
+  val testRouter: InternRoutes = new InternRoutes(
+    httpErrorHandler,
+    statusController
+  )
 
   override val router: Routes = new Routes(
     httpErrorHandler,
-    oneComponents.router,
-    twoComponents.router,
-    assets
+    testRouter,
+    statusController
   )
 }

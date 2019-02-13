@@ -1,0 +1,2 @@
+->       /1         test.intern.Routes
+GET     /status     test.controllers.StatusController.status()

@@ -1,0 +1,1 @@
+GET     /status        test.controllers.StatusController.status()
