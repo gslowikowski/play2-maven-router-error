@@ -115,7 +115,7 @@
                 <mainModule>route.generator.example:module.finale</mainModule>
             </configuration>
         </plugin>
-        <plugin>
+        <!-- not needed <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>build-helper-maven-plugin</artifactId>
             <version>3.0.0</version>
@@ -130,12 +130,12 @@
                     </configuration>
                 </execution>
             </executions>
-        </plugin>
+        </plugin> -->
         <plugin>
             <groupId>com.google.code.sbt-compiler-maven-plugin</groupId>
             <artifactId>sbt-compiler-maven-plugin</artifactId>
             <version>${sbt-compiler.plugin.version}</version>
-            <executions>
+            <!-- not needed <executions>
                 <execution>
                     <id>default-sbt-compile</id>
                     <goals>
@@ -143,10 +143,11 @@
                         <goal>testCompile</goal>
                     </goals>
                 </execution>
-            </executions>
+            </executions> -->
             <configuration>
                 <scalaVersion>${scala.version}</scalaVersion>
-                <scalacOptions>-Ywarn-value-discard -Ypartial-unification -Ywarn-unused -Xfatal-warnings -deprecation -unchecked -feature -Xlint -encoding UTF-8</scalacOptions>
+                <!-- <scalacOptions>-Ywarn-value-discard -Ypartial-unification -Ywarn-unused -Xfatal-warnings -deprecation -unchecked -feature -Xlint -encoding UTF-8</scalacOptions> -->
+                <scalacOptions>-Ywarn-value-discard -Ypartial-unification -Ywarn-unused -deprecation -unchecked -feature -Xlint -encoding UTF-8</scalacOptions>
             </configuration>
         </plugin>
     </plugins>
