@@ -109,13 +109,18 @@
             <groupId>com.google.code.play2-maven-plugin</groupId>
             <artifactId>play2-maven-plugin</artifactId>
             <version>${play2.plugin.version}</version>
-            <extensions>true</extensions>
+            <!-- not needed <extensions>true</extensions> -->
             <configuration>
                 <serverJvmArgs>-Dplay.evolutions.db.default.autoApply=true</serverJvmArgs>
                 <mainModule>route.generator.example:module.finale</mainModule>
             </configuration>
+            <executions>
+                <execution>
+                    <goals><goal>routes-compile</goal></goals>
+                </execution>
+            </executions>
         </plugin>
-        <plugin>
+        <!-- not needed <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>build-helper-maven-plugin</artifactId>
             <version>3.0.0</version>
@@ -130,6 +135,15 @@
                     </configuration>
                 </execution>
             </executions>
+        </plugin> -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.0</version>
+            <configuration>
+                <skipMain>true</skipMain> <!-- skip compile -->
+                <skip>true</skip> <!-- skip testCompile -->
+            </configuration>
         </plugin>
         <plugin>
             <groupId>com.google.code.sbt-compiler-maven-plugin</groupId>
@@ -146,7 +160,8 @@
             </executions>
             <configuration>
                 <scalaVersion>${scala.version}</scalaVersion>
-                <scalacOptions>-Ywarn-value-discard -Ypartial-unification -Ywarn-unused -Xfatal-warnings -deprecation -unchecked -feature -Xlint -encoding UTF-8</scalacOptions>
+                <!-- <scalacOptions>-Ywarn-value-discard -Ypartial-unification -Ywarn-unused -Xfatal-warnings -deprecation -unchecked -feature -Xlint -encoding UTF-8</scalacOptions> -->
+                <scalacOptions>-Ywarn-value-discard -Ypartial-unification -Ywarn-unused -deprecation -unchecked -feature -Xlint -encoding UTF-8</scalacOptions>
             </configuration>
         </plugin>
     </plugins>
